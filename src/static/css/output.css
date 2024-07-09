@@ -1433,10 +1433,6 @@ input:checked + .toggle-bg {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
@@ -2157,6 +2153,10 @@ input:checked + .toggle-bg {
 
   .md\:w-3\/4 {
     width: 75%;
+  }
+
+  .md\:w-64 {
+    width: 16rem;
   }
 
   .md\:w-auto {
