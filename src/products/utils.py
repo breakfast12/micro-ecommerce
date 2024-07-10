@@ -28,3 +28,4 @@ def product_sales_pipeline(product_name="Test Product", product_price=1000):
         success_url = success_url,
         cancel_url = cancel_url
     )
+    print(checkout_session.url)
