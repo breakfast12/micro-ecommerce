@@ -4,3 +4,4 @@ python-dotenv
 dj-database-url
 python-decouple
 Pillow
+stripe
