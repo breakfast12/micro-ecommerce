@@ -6,12 +6,18 @@
 #
 asgiref==3.8.1
     # via django
+certifi==2024.7.4
+    # via requests
+charset-normalizer==3.3.2
+    # via requests
 dj-database-url==2.2.0
     # via -r src/requirements/requirements.in
 django==4.1.13
     # via
     #   -r src/requirements/requirements.in
     #   dj-database-url
+idna==3.7
+    # via requests
 pillow==10.4.0
     # via -r src/requirements/requirements.in
 psycopg2==2.9.9
@@ -20,7 +26,15 @@ python-decouple==3.8
     # via -r src/requirements/requirements.in
 python-dotenv==1.0.1
     # via -r src/requirements/requirements.in
+requests==2.32.3
+    # via stripe
 sqlparse==0.5.0
     # via django
+stripe==10.2.0
+    # via -r src/requirements/requirements.in
 typing-extensions==4.12.2
-    # via dj-database-url
+    # via
+    #   dj-database-url
+    #   stripe
+urllib3==2.2.2
+    # via requests
