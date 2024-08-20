@@ -1,0 +1,21 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /app/config/entrypoint.sh
+    volumes:
+      - ./src:/app
+      - /app/local-cdn/static
+      - /app/local-cdn/media
+      - /app/local-cdn/protected
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+    environment:
+      - ENV=${ENV}
+volumes:
+  static_volume:
+  media_volume:
+  protected_volume:
