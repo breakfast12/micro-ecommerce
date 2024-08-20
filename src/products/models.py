@@ -88,3 +88,7 @@ class ProductAttachment(models.Model):
     
     def get_download_url(self):
         return reverse("products:download", kwargs={"handle": self.product.handle, "pk": self.pk})
+    
+    def __str__(self):
+        return self.name
+    

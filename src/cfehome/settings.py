@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from .db import *
 from cfehome.env import config
@@ -25,9 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("DJANGO_SECRET_KEY", default=None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
 
 ALLOWED_HOSTS = []
+ALLOWED_HOST = config("ALLOWED_HOST", cast=str, default="")
+if ALLOWED_HOST:
+    ALLOWED_HOSTS.append(ALLOWED_HOST.strip())
 
 
 # Application definition
@@ -120,12 +123,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR.parent / "local-cdn" / "static"
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR.parent / "local-cdn" / "media"
-PROTECTED_MEDIA_ROOT = BASE_DIR.parent / "local-cdn" / "protected"
+STATIC_ROOT = BASE_DIR / 'local-cdn' / 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'local-cdn' / 'media'
+PROTECTED_MEDIA_ROOT = BASE_DIR / 'local-cdn' / 'protected'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
